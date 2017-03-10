@@ -39,7 +39,7 @@
   <body ng-app="ngReddit" ng-controller="redditCtrl">
 
     <ion-pane>
-      <ion-header-bar class="bar bar-header bar-dark">
+      <ion-header-bar class="bar bar-header bar-royal">
         <h1 class="title">ngReddit</h1>
       </ion-header-bar>
       <ion-content>
@@ -50,7 +50,7 @@
             <img ng-src="{{feed.thumbnail}}"
               ng-if="feed.thumbnail.startsWith('http')"> 
             <h2 class="feed-post">{{feed.title}}</h2> 
-            <p>
+            <p class="subreddit">
               {{feed.subreddit_name_prefixed}}
             </p>
           </a>

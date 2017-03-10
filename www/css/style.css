@@ -11,3 +11,7 @@ h2.feed-post {
     height: 3em;
     white-space: nowrap;
 }
+
+.subreddit {
+    vertical-align: bottom;
+}

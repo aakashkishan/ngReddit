@@ -19,6 +19,10 @@
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
+    <!-- Required Fonts for the Ionic Application. -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
@@ -35,12 +39,22 @@
   <body ng-app="ngReddit" ng-controller="redditCtrl">
 
     <ion-pane>
-      <ion-header-bar class="bar bar-header bar-balanced">
+      <ion-header-bar class="bar bar-header bar-dark">
         <h1 class="title">ngReddit</h1>
       </ion-header-bar>
       <ion-content>
-        <!--Run an Angular Loop to read and print through the feeds array.-->
-        <div ng-repeat="feed in feeds">{{feed.title}} <br> {{feed.selftext}} <hr> </div>
+        <div class="list">
+          <!--Run an Angular Loop to read and print through the feeds array.-->
+          <a href="#" class="posts item item-thumbnail-left" 
+            ng-repeat="feed in feeds">
+            <img ng-src="{{feed.thumbnail}}"
+              ng-if="feed.thumbnail.startsWith('http')"> 
+            <h2 class="feed-post">{{feed.title}}</h2> 
+            <p>
+              {{feed.subreddit_name_prefixed}}
+            </p>
+          </a>
+        </div>
       </ion-content>
     </ion-pane>
   </body>

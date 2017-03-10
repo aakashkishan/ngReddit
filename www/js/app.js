@@ -10,14 +10,27 @@
 
 
   //Creating a Angular-Controller with $scope Service.
-  app.controller('redditCtrl', function($scope, $http) {
+  app.controller('redditCtrl', function($scope, $http, $ionicPopup, $timeout) {
+
+    //Alerting the Chosen Feed as a Pop-Up.
+    // An alert dialog
+    // $scope.showAlert = function() {
+    //   var alertPopup = $ionicPopup.alert({
+    //     title: {{feed.title}},
+    //     template: {{feed.thumbnail}}
+    //   });
+
+    //   alertPopup.then(function(res) {
+    //     console.log('Alert');
+    //   });
+    // };
 
     //Declaring and Intialising a feeds array using $scope and $http Service.
     //It contains all the feeds to be run / displayed.
     $scope.feeds = [];
 
     //Get the Data required to be printed from reddit using the below URL and $http Service.
-    $http.get('https://www.reddit.com/r/Jokes/new/.json')
+    $http.get('https://www.reddit.com/r/funny/new/.json')
       // OnSuccess print the Title and SelfText of the gotten data based on the received data's format.
       .success( function(response){
         //forEach() in angular recieves an Array and gives each Element of the Array.

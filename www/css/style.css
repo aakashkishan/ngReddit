@@ -1,1 +1,13 @@
 /* Empty. Add your own CSS if you like */
+
+
+h2.feed-post {
+    font-family: 'Oswald';
+    white-space: normal;
+}
+
+.posts {
+    font-family: 'Oswald';
+    height: 3em;
+    white-space: nowrap;
+}

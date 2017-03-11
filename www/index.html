@@ -30,6 +30,10 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
+    <!--Including Moment.js to resolve UNIX TimeStamp-->
+    <script src="lib/moment/moment.js"></script>
+    <script src="lib/angular-moment/angular-moment.js"></script>
+
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
@@ -39,7 +43,7 @@
   <body ng-app="ngReddit" ng-controller="redditCtrl">
 
     <ion-pane>
-      <ion-header-bar class="bar bar-header bar-royal">
+      <ion-header-bar class="bar bar-header bar-royal ">
         <h1 class="title">ngReddit</h1>
       </ion-header-bar>
       <ion-content>
@@ -50,7 +54,9 @@
             <img ng-src="{{feed.thumbnail}}"
               ng-if="feed.thumbnail.startsWith('http')"> 
             <h2 class="feed-post">{{feed.title}}</h2> 
+             
             <p class="subreddit">
+              <span am-time-ago="feed.created_utc | amFromUnix"></span> -
               {{feed.subreddit_name_prefixed}}
             </p>
           </a>

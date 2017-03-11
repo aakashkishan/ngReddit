@@ -6,31 +6,18 @@
   // angular.module is a global place for creating, registering and retrieving Angular modules
   // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
   // the 2nd parameter is an array of 'requires'
-  var app = angular.module('ngReddit', ['ionic'])
+  var app = angular.module('ngReddit', ['ionic', 'angularMoment'])
 
 
   //Creating a Angular-Controller with $scope Service.
-  app.controller('redditCtrl', function($scope, $http, $ionicPopup, $timeout) {
-
-    //Alerting the Chosen Feed as a Pop-Up.
-    // An alert dialog
-    // $scope.showAlert = function() {
-    //   var alertPopup = $ionicPopup.alert({
-    //     title: {{feed.title}},
-    //     template: {{feed.thumbnail}}
-    //   });
-
-    //   alertPopup.then(function(res) {
-    //     console.log('Alert');
-    //   });
-    // };
+  app.controller('redditCtrl', function($scope, $http) { 
 
     //Declaring and Intialising a feeds array using $scope and $http Service.
     //It contains all the feeds to be run / displayed.
     $scope.feeds = [];
 
     //Get the Data required to be printed from reddit using the below URL and $http Service.
-    $http.get('https://www.reddit.com/r/funny/new/.json')
+    $http.get('https://www.reddit.com/r/funny/hot/.json')
       // OnSuccess print the Title and SelfText of the gotten data based on the received data's format.
       .success( function(response){
         //forEach() in angular recieves an Array and gives each Element of the Array.
